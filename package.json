@@ -1,0 +1,24 @@
+{
+  "name": "weekend-server-calculator-e",
+  "version": "1.0.0",
+  "description": "[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mineralsun/weekend-server-calculator-E.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mineralsun/weekend-server-calculator-E/issues"
+  },
+  "homepage": "https://github.com/mineralsun/weekend-server-calculator-E#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
