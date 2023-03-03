@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1>Server Calculator</h1>
+    <form onsubmit="submitEquation(event)">
+        <input type="number" id="firstNumber" />
+        <button onclick="addNumbers()">+</button>
+        <button onclick="subtractNumbers()">-</button>
+        <button onclick="multiplyNumbers()">x</button>
+        <button onclick="divideNumbers()">/</button>
+        <input type="number" id="secondNumber" />
+        <input type="submit" value="=" />
+        <button onclick="clearInput()">C</button>
+    </form>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="scripts/client.js"></script>
