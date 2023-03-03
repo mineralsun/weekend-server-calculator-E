@@ -10,17 +10,17 @@
     <h1>Server Calculator</h1>
     <form onsubmit="submitEquation(event)">
         <input type="number" id="firstNumber" />
-        <button onclick="addNumbers()">+</button>
-        <button onclick="subtractNumbers()">-</button>
-        <button onclick="multiplyNumbers()">x</button>
-        <button onclick="divideNumbers()">/</button>
+        <button onclick="addNumbers()" id="addButton">+</button>
+        <button onclick="subtractNumbers()" id="subtractButton">-</button>
+        <button onclick="multiplyNumbers()" id="multiplyButton">x</button>
+        <button onclick="divideNumbers()" id="divideButton">/</button>
         <input type="number" id="secondNumber" />
         <input type="submit" value="=" />
         <button onclick="clearInput()">C</button>
     </form>
     <h2>Calculator History</h2>
     <div id="outputDiv">
-        
+
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

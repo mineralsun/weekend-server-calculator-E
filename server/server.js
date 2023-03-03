@@ -11,3 +11,15 @@ app.listen(port, () => {
   }); 
 
 app.use(express.json());
+
+let equations = [];
+
+app.get('/math', (req, res) => {
+  res.send(equations);
+});
+
+app.post('/math', (req, res) => {
+  let equationsToAdd = req.body;
+  equations.push(equationsToAdd);
+  res.sendStatus(201);
+})
