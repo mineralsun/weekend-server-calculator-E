@@ -11,15 +11,15 @@ function addNumbers(num1, num2) {
 }
 console.log(addNumbers(2,3));
 
-function getMatch() {
+function getMath() {
     axios.get('/math').then((response) => {
         console.log(response);
         let equationsFromServer = response.data;
         let contentDiv = document.querySelector('#outputDid');
         contentDiv.innerHTML = '';
-        for(let equation of equationsFromServer) {
+        for(let equations of equationsFromServer) {
             contentDiv.innerHTML += `
-            
+            <p>${equations.firstNumber} ${equations.operatorSymbol} ${equations.secondNumber} = ${equations.answer}
             `;
         }
     }).catch((error) => {
