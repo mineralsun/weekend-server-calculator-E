@@ -8,12 +8,12 @@
 </head>
 <body>
     <h1>Server Calculator</h1>
-    <form onsubmit="submitEquation(event)">
+    <form onSubmit="submitEquation(event)">
         <input type="number" id="firstNumber" />
-        <button onclick="addNumbers()" id="addButton">+</button>
-        <button onclick="subtractNumbers()" id="subtractButton">-</button>
-        <button onclick="multiplyNumbers()" id="multiplyButton">x</button>
-        <button onclick="divideNumbers()" id="divideButton">/</button>
+        <button type="button" onclick="addNumbers(event)" id="plus">+</button>
+        <button type="button" onclick="subtractNumbers(event)" id="subtractButton">-</button>
+        <button type="button" onclick="multiplyNumbers(event)" id="multiplyButton">x</button>
+        <button type="button" onclick="divideNumbers(event)" id="divideButton">/</button>
         <input type="number" id="secondNumber" />
         <input type="submit" value="=" />
         <button onclick="clearInput()">C</button>

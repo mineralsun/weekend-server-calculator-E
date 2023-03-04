@@ -2,6 +2,7 @@ console.log('Yo waddup');
 
 const num1 = document.querySelector('#firstNumber').value;
 const num2 = document.querySelector('#secondNumber').value;
+//let result = sum
 
 function addNumbers(num1, num2) {
     let sum = num1 + num2;
@@ -33,7 +34,7 @@ function getMath() {
     axios.get('/math').then((response) => {
         console.log(response);
         let equationsFromServer = response.data;
-        let contentDiv = document.querySelector('#outputDid');
+        let contentDiv = document.querySelector('#outputDiv');
         contentDiv.innerHTML = '';
         for(let equations of equationsFromServer) {
             contentDiv.innerHTML += `
@@ -49,15 +50,17 @@ function getMath() {
 function submitEquation(event) {
     event.preventDefault();
     console.log('Successful submission');
-    let addSymbol = document.querySelector('#addButton');
-    let subtractSymbol = document.querySelector('#subtractButton');
+    const num1 = document.querySelector('#firstNumber').value;
+    const num2 = document.querySelector('#secondNumber').value;
+    let addSymbol = document.querySelector('#plus')
+    let subtractSymbol = '-'
     let multiplySymbol = document.querySelector('#multiplyButton');
     let divideSymbol = document.querySelector('#divideButton');
     let equationsForServer = {
-        firstNumber: num1,
+        firstNumber: Number(num1),
         operatorSymbol: addSymbol || subtractSymbol || multiplySymbol || divideSymbol,
-        secondNumber: num2,
-        answer: answer,
+        secondNumber: Number(num2),
+        answer: addNumbers(Number(num1), Number(num2)) || subtractNumbers(Number(num1), Number(num2))
     };
     axios.post('/math', equationsForServer).then((response) => {
         console.log(response);

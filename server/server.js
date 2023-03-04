@@ -12,7 +12,14 @@ app.listen(port, () => {
 
 app.use(express.json());
 
-let equations = [];
+let equations = [
+  {
+    firstNumber: 1,
+    operatorSymbol: '+',
+    secondNumber: 2,
+    answer: 3,
+  }
+];
 
 app.get('/math', (req, res) => {
   res.send(equations);
