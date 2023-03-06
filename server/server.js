@@ -15,7 +15,7 @@ app.use(express.json());
 let equations = [
   {
     firstNumber: 1,
-    operatorSymbol: '+',
+    operation: '+',
     secondNumber: 2,
     answer: 3,
   }

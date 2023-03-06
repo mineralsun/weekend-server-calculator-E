@@ -10,10 +10,10 @@
     <h1>Server Calculator</h1>
     <form onSubmit="submitEquation(event)">
         <input type="number" id="firstNumber" />
-        <button type="button" onclick="addNumbers(event)" id="plus">+</button>
-        <button type="button" onclick="subtractNumbers(event)" id="subtractButton">-</button>
-        <button type="button" onclick="multiplyNumbers(event)" id="multiplyButton">x</button>
-        <button type="button" onclick="divideNumbers(event)" id="divideButton">/</button>
+        <button type="button" onClick="addButton(event)" id="additionButton" value="+">+</button>
+        <button type="button" onClick="subtractButton(event)" id="subtractionButton" value="-">-</button>
+        <button type="button" onClick="multiplyButton(event)" id="multiplicationButton" value="*">x</button>
+        <button type="button" onClick="divideButton(event)" id="divisionButton" value="/">/</button>
         <input type="number" id="secondNumber" />
         <input type="submit" value="=" />
         <button onclick="clearInput()">C</button>

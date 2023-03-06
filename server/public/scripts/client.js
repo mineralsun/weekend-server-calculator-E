@@ -2,7 +2,24 @@ console.log('Yo waddup');
 
 const num1 = document.querySelector('#firstNumber').value;
 const num2 = document.querySelector('#secondNumber').value;
-//let result = sum
+
+let operation = ''
+
+function addButton(event) {
+    operation = '+';
+}
+
+function subtractButton(event) {
+    operation = '-';
+}
+
+function multiplyButton(event) {
+    operation = '*';
+}
+
+function divideButton(event) {
+    operation = '/';
+}
 
 function addNumbers(num1, num2) {
     let sum = num1 + num2;
@@ -28,8 +45,6 @@ function divideNumbers(num1, num2) {
 };
 console.log(divideNumbers(8,2));
 
-
-
 function getMath() {
     axios.get('/math').then((response) => {
         console.log(response);
@@ -38,7 +53,7 @@ function getMath() {
         contentDiv.innerHTML = '';
         for(let equations of equationsFromServer) {
             contentDiv.innerHTML += `
-            <p>${equations.firstNumber} ${equations.operatorSymbol} ${equations.secondNumber} = ${equations.answer}
+            <p>${equations.firstNumber} ${equations.operation} ${equations.secondNumber} = ${equations.answer}
             `;
         }
     }).catch((error) => {
@@ -52,17 +67,15 @@ function submitEquation(event) {
     console.log('Successful submission');
     const num1 = document.querySelector('#firstNumber').value;
     const num2 = document.querySelector('#secondNumber').value;
-    let addSymbol = document.querySelector('#plus')
-    let subtractSymbol = '-'
-    let multiplySymbol = document.querySelector('#multiplyButton');
-    let divideSymbol = document.querySelector('#divideButton');
+    //let result = ,
     let equationsForServer = {
         firstNumber: Number(num1),
-        operatorSymbol: addSymbol || subtractSymbol || multiplySymbol || divideSymbol,
+        operation: operation,
         secondNumber: Number(num2),
-        answer: addNumbers(Number(num1), Number(num2)) || subtractNumbers(Number(num1), Number(num2))
+        //answer: result,
     };
     axios.post('/math', equationsForServer).then((response) => {
+        console.log(equationsForServer);
         console.log(response);
         getMath();
     }).catch((error) => {
