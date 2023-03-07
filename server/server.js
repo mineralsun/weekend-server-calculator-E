@@ -37,12 +37,12 @@ function divideNumbers(num1, num2) {
 console.log(divideNumbers(8,2));
 
 let equations = [
-  {
-    firstNumber: 1,
-    operation: '+',
-    secondNumber: 2,
-    answer: 3
-  }
+  // {
+  //   firstNumber: 1,
+  //   operation: '+',
+  //   secondNumber: 2,
+  //   answer: 3
+  // }
 ];
 
 app.get('/math', (req, res) => {

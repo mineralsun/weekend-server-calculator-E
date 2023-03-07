@@ -57,6 +57,12 @@ function getMath() {
             <p>${equations.firstNumber} ${equations.operation} ${equations.secondNumber} = ${equations.answer}
             `;
         }
+        let result = document.querySelector('#resultDiv');
+            result.innerHTML = '';
+            for(let equations of equationsFromServer)
+            result.innerHTML += `
+            <h3> ${equations.answer} </h3>
+            `;
     }).catch((error) => {
         console.log(error);
         alert('Something went wrong');
@@ -74,7 +80,6 @@ function submitEquation(event) {
         firstNumber: Number(num1),
         operation: operation,
         secondNumber: Number(num2),
-        // answer: addButton(num1, num2)
     };
     axios.post('/math', equationsForServer).then((response) => {
         console.log(equationsForServer);
