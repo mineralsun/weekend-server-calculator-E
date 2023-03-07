@@ -90,3 +90,8 @@ function submitEquation(event) {
         alert('Something went wrong')
     });
 }
+
+function clearInput(event) {
+    const num1 = document.querySelector('#firstNumber').value = ''
+    const num2 = document.querySelector('#secondNumber').value = ''
+}
