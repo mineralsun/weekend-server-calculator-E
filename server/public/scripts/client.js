@@ -21,29 +21,29 @@ function divideButton(event) {
     operation = '/';
 }
 
-function addNumbers(num1, num2) {
-    let sum = num1 + num2;
-    return sum;
-};
-console.log(addNumbers(2,3));
+// function addNumbers(num1, num2) {
+//     let sum = num1 + num2;
+//     return sum;
+// };
+// console.log(addNumbers(2,3));
 
-function subtractNumbers(num1, num2) {
-    let sum = num1 - num2;
-    return sum;
-};
-console.log(subtractNumbers(5,4));
+// function subtractNumbers(num1, num2) {
+//     let sum = num1 - num2;
+//     return sum;
+// };
+// console.log(subtractNumbers(5,4));
 
-function multiplyNumbers(num1, num2) {
-    let sum = num1 * num2;
-    return sum;
-};
-console.log(multiplyNumbers(5,3));
+// function multiplyNumbers(num1, num2) {
+//     let sum = num1 * num2;
+//     return sum;
+// };
+// console.log(multiplyNumbers(5,3));
 
-function divideNumbers(num1, num2) {
-    let sum = num1 / num2;
-    return sum;
-};
-console.log(divideNumbers(8,2));
+// function divideNumbers(num1, num2) {
+//     let sum = num1 / num2;
+//     return sum;
+// };
+// console.log(divideNumbers(8,2));
 
 function getMath() {
     axios.get('/math').then((response) => {
@@ -67,12 +67,11 @@ function submitEquation(event) {
     console.log('Successful submission');
     const num1 = document.querySelector('#firstNumber').value;
     const num2 = document.querySelector('#secondNumber').value;
-    //let result = ,
     let equationsForServer = {
         firstNumber: Number(num1),
         operation: operation,
         secondNumber: Number(num2),
-        //answer: result,
+        //answer: answer,
     };
     axios.post('/math', equationsForServer).then((response) => {
         console.log(equationsForServer);
