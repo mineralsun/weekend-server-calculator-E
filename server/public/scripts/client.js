@@ -3,6 +3,8 @@ console.log('Yo waddup');
 const num1 = document.querySelector('#firstNumber').value;
 const num2 = document.querySelector('#secondNumber').value;
 
+//This global variable allows me to set which function I am referencing
+// by the click of a specific matching button!
 let operation = '';
 
 function addButton(event) {
@@ -21,31 +23,9 @@ function divideButton(event) {
     operation = '/';
 }
 
-// function addNumbers(num1, num2) {
-//     let sum = num1 + num2;
-//     return sum;
-// };
-// console.log(addNumbers(2,3));
-
-// function subtractNumbers(num1, num2) {
-//     let sum = num1 - num2;
-//     return sum;
-// };
-// console.log(subtractNumbers(5,4));
-
-// function multiplyNumbers(num1, num2) {
-//     let sum = num1 * num2;
-//     return sum;
-// };
-// console.log(multiplyNumbers(5,3));
-
-// function divideNumbers(num1, num2) {
-//     let sum = num1 / num2;
-//     return sum;
-// };
-// console.log(divideNumbers(8,2));
-
-
+//This function gets my math by request from the server.
+// This will append any old function and newer functions
+// to the DOM using the response of the GET request.
 function getMath() {
     axios.get('/math').then((response) => {
         console.log(response);
@@ -70,12 +50,16 @@ function getMath() {
 };
 getMath();
 
+
+//This function is called by hitting the equals button
+//This posts new math to the server, and then calls
+// the GET request to display the new function and the
+// older functions as well!
 function submitEquation(event) {
     event.preventDefault();
     console.log('Successful submission');
     const num1 = document.querySelector('#firstNumber').value;
     const num2 = document.querySelector('#secondNumber').value;
-   // const answer = addButton(event.answer)
     let equationsForServer = {
         firstNumber: Number(num1),
         operation: operation,
@@ -91,6 +75,8 @@ function submitEquation(event) {
     });
 }
 
+//This function resets the value of my input fields
+// to an empty string!
 function clearInput(event) {
     const num1 = document.querySelector('#firstNumber').value = ''
     const num2 = document.querySelector('#secondNumber').value = ''
