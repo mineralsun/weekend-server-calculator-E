@@ -3,7 +3,7 @@ console.log('Yo waddup');
 const num1 = document.querySelector('#firstNumber').value;
 const num2 = document.querySelector('#secondNumber').value;
 
-let operation = ''
+let operation = '';
 
 function addButton(event) {
     operation = '+';
@@ -45,6 +45,7 @@ function divideButton(event) {
 // };
 // console.log(divideNumbers(8,2));
 
+
 function getMath() {
     axios.get('/math').then((response) => {
         console.log(response);
@@ -61,17 +62,19 @@ function getMath() {
         alert('Something went wrong');
     })
 };
+getMath();
 
 function submitEquation(event) {
     event.preventDefault();
     console.log('Successful submission');
     const num1 = document.querySelector('#firstNumber').value;
     const num2 = document.querySelector('#secondNumber').value;
+   // const answer = addButton(event.answer)
     let equationsForServer = {
         firstNumber: Number(num1),
         operation: operation,
         secondNumber: Number(num2),
-        //answer: answer,
+        // answer: addButton(num1, num2)
     };
     axios.post('/math', equationsForServer).then((response) => {
         console.log(equationsForServer);
@@ -82,4 +85,3 @@ function submitEquation(event) {
         alert('Something went wrong')
     });
 }
-console.log(submitEquation());

@@ -13,10 +13,8 @@ app.listen(port, () => {
 app.use(express.json());
 
 function addNumbers(num1, num2) {
-  let sum = num1 + num2;
-  let answer = Number(sum);
-  return answer;
-
+    let answer = num1 + num2
+    return answer;
 };
 console.log(addNumbers(2,3));
 
@@ -43,25 +41,30 @@ let equations = [
     firstNumber: 1,
     operation: '+',
     secondNumber: 2,
-    answer: 3,
+    answer: 3
   }
 ];
 
 app.get('/math', (req, res) => {
-  if(equations.operation === '+') {
-    addNumbers(equations.firstNumber, equations.secondNumber);
-  } else if (equations.operation === '-') {
-    subtractNumbers(equations.firstNumber, equations.secondNumber)
-  } else if (equations.operation === '*') {
-    multiplyNumbers(equations.firstNumber, equations.secondNumber)  
-  } else (equations.operation === '/'); {
-    divideNumbers(equations.firstNumber, equations.secondNumber)
-  }
   res.send(equations);
 });
 
 app.post('/math', (req, res) => {
   let equationsToAdd = req.body;
+  console.log(equationsToAdd);
+    if(equationsToAdd.operation === '+') {
+    console.log('add', equationsToAdd.operation);  
+    equationsToAdd.answer = addNumbers(equationsToAdd.firstNumber, equationsToAdd.secondNumber);
+  } else if (equationsToAdd.operation === '-') {
+    console.log('subtract', equationsToAdd.operation); 
+    equationsToAdd.answer = subtractNumbers(equationsToAdd.firstNumber, equationsToAdd.secondNumber)
+  } else if (equationsToAdd.operation === '*') {
+    console.log('multiply', equationsToAdd.operation); 
+    equationsToAdd.answer = multiplyNumbers(equationsToAdd.firstNumber, equationsToAdd.secondNumber)  
+  } else if (equationsToAdd.operation === '/') {
+    console.log('divide', equationsToAdd.operation); 
+    equationsToAdd.answer = divideNumbers(equationsToAdd.firstNumber, equationsToAdd.secondNumber)
+  }
   equations.push(equationsToAdd);
   res.sendStatus(201);
 })
